@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "VideoWall WebApp",
+  "short_name": "Videowall",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

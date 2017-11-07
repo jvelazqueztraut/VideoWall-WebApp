@@ -48,54 +48,56 @@
     </ion-row>
   </ion-grid>
   <ion-item-divider color="dark">Playlists</ion-item-divider>
-  <ion-list *ngFor="let player of selectedConfig.players">
-    <ion-item-sliding>
-      <ion-item class="playlist-title">
-        <h2>Playlist <b>{{player.id}}</b></h2>
-        <p>TVs: {{getPlayerZones(player.id)}}</p>
-        <button ion-button item-right (click)="chooseColor($event,player.background)" [style.background-color]="getColor(player.background)">&emsp;</button>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="deletePlayer($event,player)">
-          <ion-icon name="trash"></ion-icon>
-          Delete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-list>
-      <ion-item-sliding *ngFor="let content of player.contents">
-        <button ion-item (click)="openContent($event,content)">
-          <ion-icon *ngIf="content.type=='image'" name="image" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='video'" name="play" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='web'" name="globe" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='youtube'" name="videocam" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='twitter'" name="twitter" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='instagram'" name="instagram" item-left></ion-icon>
-          <ion-icon *ngIf="content.type=='countdown'" name="clock" item-left></ion-icon>
-          <h2>{{content.title}}</h2>
-          <p *ngIf="content.loop=='none'">{{content.load}} · {{content.top}} · {{content.bottom}} · No loop</p>
-          <p *ngIf="content.loop=='time'">{{content.load}} · {{content.top}} ·{{content.bottom}} · {{content.time}} seconds</p>
-          <p *ngIf="content.loop=='repetitions'">{{content.load}} · {{content.top}} ·{{content.bottom}} · {{content.repetitions}} repetitions</p>
-          <p *ngIf="content.type=='countdown'">{{content.date.year}}/{{content.date.month}}/{{content.date.day}} {{content.date.hour}}:{{content.date.minute}}</p>
-        </button>
+  <ion-list>
+    <ion-item *ngFor="let player of selectedConfig.players">
+      <ion-item-sliding>
+        <ion-item class="playlist-title">
+          <h2>Playlist <b>{{player.id}}</b></h2>
+          <p>TVs: {{getPlayerZones(player.id)}}</p>
+          <button ion-button item-right (click)="chooseColor($event,player.background)" [style.background-color]="getColor(player.background)">&emsp;</button>
+        </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="danger" (click)="deleteContent($event,player,content)">
-            <ion-icon name="trash" small></ion-icon>
+          <button ion-button color="danger" (click)="deletePlayer($event,player)">
+            <ion-icon name="trash"></ion-icon>
             Delete
           </button>
         </ion-item-options>
       </ion-item-sliding>
-      <button ion-item (click)="addContent($event,player)">
-        <ion-icon name="add" item-left></ion-icon>
-        <h2>Add content</h2>
-      </button>
-    </ion-list>
+      <ion-list>
+        <ion-item-sliding *ngFor="let content of player.contents">
+          <button ion-item (click)="openContent($event,content)">
+            <ion-icon *ngIf="content.type=='image'" name="image" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='video'" name="play" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='web'" name="globe" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='youtube'" name="videocam" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='twitter'" name="twitter" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='instagram'" name="instagram" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='countdown'" name="clock" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='weather'" name="weather" item-left></ion-icon>
+            <ion-icon *ngIf="content.type=='clock'" name="clock" item-left></ion-icon>
+            <h2>{{content.title}}</h2>
+            <p *ngIf="content.loop=='none'">No loop</p>
+            <p *ngIf="content.loop=='time'">{{content.time}} seconds</p>
+            <p *ngIf="content.loop=='repetitions'">{{content.repetitions}} repetitions</p>
+          </button>
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="deleteContent($event,player,content)">
+              <ion-icon name="trash" small></ion-icon>
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <a ion-item (click)="addContent($event,player)">
+          <ion-icon name="add" item-left></ion-icon>
+          <h2>Add content</h2>
+        </a>
+      </ion-list>
+    </ion-item>
+    <a ion-item *ngIf="selectedConfig.players.length<(selectedConfig.rows*selectedConfig.cols)" (click)="addPlayer($event,selectedConfig)">
+      <ion-icon name="add" item-left></ion-icon>
+      <h2>Add playlist</h2>
+    </a>
   </ion-list>
-  <button ion-item class="playlist-title" *ngIf="selectedConfig.players.length<(selectedConfig.rows*selectedConfig.cols)" (click)="addPlayer($event,selectedConfig)">
-    <ion-icon name="add" item-left></ion-icon>
-    <h2>Add playlist</h2>
-  </button>
-  <ion-item></ion-item>
 </ion-content>
 <ion-footer>
   <ion-toolbar *ngIf="selectedConfig.active">

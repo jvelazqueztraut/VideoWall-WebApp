@@ -23,9 +23,11 @@
         <ion-option value="twitter">Twitter</ion-option>
         <ion-option value="instagram">Instagram</ion-option>
         <ion-option value="countdown">Countdown</ion-option>
+        <ion-option value="weather">Weather</ion-option>
+        <ion-option value="clock">Clock</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item *ngIf="selectedContent.type!='instagram'">
+    <ion-item *ngIf="selectedContent.type=='image' || selectedContent.type=='video' || selectedContent.type=='web' || selectedContent.type=='youtube' || selectedContent.type=='twitter'">
       <ion-label *ngIf="selectedContent.type=='image'">File</ion-label>
       <ion-label *ngIf="selectedContent.type=='video'">File</ion-label>
       <ion-label *ngIf="selectedContent.type=='web'">URL</ion-label>

@@ -8,9 +8,10 @@ Download and `npm install`.
 
 #### Development
 
-Run `ionic serve`.
+Host locally using `ionic serve`.
 
 #### Deployment
 
 This application can be deployed as a PWA, Android or iOS application.
-It can be hosted locally using `ionic serve`.
+`npm run ionic:build --prod`
+Output files are in www folder

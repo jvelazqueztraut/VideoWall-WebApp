@@ -49,7 +49,7 @@ export class DataBaseService {
 	        if(data)
 	          this.server = data;
 	        else
-	          this.server = 'http://localhost:7890';
+	          this.server = 'http://192.168.1.100:7890';
 	      	this.dataBaseObserver.next(true);
 	      });
 

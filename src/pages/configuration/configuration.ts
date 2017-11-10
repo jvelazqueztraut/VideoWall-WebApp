@@ -40,7 +40,6 @@ export class ConfigPage {
       background: { r: "255", g: "255", b: "255" },
       contents: [ {
         id: 0,
-        title: "Content 0",
         type: "image",
         load: "logo.png",
         top: "",
@@ -96,7 +95,6 @@ export class ConfigPage {
     }while(used);
     player.contents.push({
       id: id,
-      title: 'Content ' + id,
       type: "image",
       load: "logo.png",
       top: "",

@@ -66,7 +66,6 @@ export class ListPage {
         background: { r: "255", g: "255", b: "255" },
         contents: [ {
           id: 0,
-          title: "Content 0",
           type: "image",
           load: "logo.png",
           top: "",

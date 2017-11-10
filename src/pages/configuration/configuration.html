@@ -75,7 +75,15 @@
             <ion-icon *ngIf="content.type=='countdown'" name="clock" item-left></ion-icon>
             <ion-icon *ngIf="content.type=='weather'" name="weather" item-left></ion-icon>
             <ion-icon *ngIf="content.type=='clock'" name="clock" item-left></ion-icon>
-            <h2>{{content.title}}</h2>
+            <h2 *ngIf="content.type=='image'">Image</h2>
+            <h2 *ngIf="content.type=='video'">Video</h2>
+            <h2 *ngIf="content.type=='web'">Web</h2>
+            <h2 *ngIf="content.type=='youtube'">Youtube</h2>
+            <h2 *ngIf="content.type=='twitter'">Twitter</h2>
+            <h2 *ngIf="content.type=='instagram'">Instagram</h2>
+            <h2 *ngIf="content.type=='countdown'">Countdown</h2>
+            <h2 *ngIf="content.type=='weather'">Weather</h2>
+            <h2 *ngIf="content.type=='clock'">clock</h2>
             <p *ngIf="content.loop=='none'">No loop</p>
             <p *ngIf="content.loop=='time'">{{content.time}} seconds</p>
             <p *ngIf="content.loop=='repetitions'">{{content.repetitions}} repetitions</p>

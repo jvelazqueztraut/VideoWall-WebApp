@@ -21,7 +21,6 @@ export class DataBaseService {
 	      background: { r: string, g: string, b: string },
 	      contents: Array<{
 	        id: number,
-	        title: string,
 	        type: string,
 	        load: string,
 	        top: string,
